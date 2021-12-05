@@ -1,5 +1,23 @@
 :root {
   --color-white: #fff;
+  --color-black: #000;
+
+  --color-gray: #888eb0;
+
+  --color-primary: #7c5dfa;
+  --color-primary-light: #9277ff;
+  --color-primary-light-2: #7e88c3;
+
+  --color-danger: #ec5757;
+  --color-danger-light: #ff9797;
+
+  --color-light-1: #f8f8fb;
+  --color-light-2: #dfe3fa;
+
+  --color-dark-1: #0c0e16;
+  --color-dark-2: #141625;
+  --color-dark-3: #1e2139;
+  --color-dark-4: #252945;
 
   --base-background: #141625;
 }
@@ -14,6 +32,10 @@
   margin: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 html,
 body {
   height: 100%;
@@ -21,7 +43,7 @@ body {
 
 body {
   color: var(--color-white);
-  background-color: var(--base-background);
+  background: var(--base-background);
   line-height: 1.5;
   font-family: 'Spartan', -apple-system, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,6 +64,12 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 p,
