@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { useTheme } from './hooks/useTheme';
+
 import Dashboard from './pages/dashboard/Dashboard';
 import Invoice from './pages/invoice/Invoice';
 import Login from './pages/login/Login';
@@ -10,8 +12,10 @@ import Signup from './pages/signup/Signup';
 import Sidebar from './components/Sidebar';
 
 const App = () => {
+  const { theme } = useTheme();
+
   return (
-    <AppLayout>
+    <AppLayout theme={theme}>
       <Sidebar />
       <Main>
         <h1>Invoice App</h1>

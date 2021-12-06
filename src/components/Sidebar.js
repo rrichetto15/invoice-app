@@ -2,11 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { useTheme } from '../hooks/useTheme';
+
 import logo from '../assets/logo.png';
 import sun from '../assets/icon-sun.svg';
+import moon from '../assets/icon-moon.svg';
 import avatar from '../assets/image-avatar.jpg';
 
 const Sidebar = () => {
+  const { theme, changeTheme } = useTheme();
+
   return (
     <SidebarWrap>
       <Link to="/">
@@ -14,8 +19,12 @@ const Sidebar = () => {
       </Link>
       <Navigation>
         <div>
-          <button>
-            <img src={sun} alt="Sun" />
+          <button onClick={changeTheme}>
+            {theme ? (
+              <img src={moon} alt="Moon" />
+            ) : (
+              <img src={sun} alt="Sun" />
+            )}
           </button>
         </div>
         <div>

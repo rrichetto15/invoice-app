@@ -19,7 +19,13 @@
   --color-dark-3: #1e2139;
   --color-dark-4: #252945;
 
+  --text-color: #ffffff;
   --base-background: #141625;
+}
+
+.theme-light {
+  --base-background: #f8f8fb;
+  --text-color: #0c0e16;
 }
 
 *,
@@ -42,7 +48,7 @@ body {
 }
 
 body {
-  color: var(--color-white);
+  color: var(--text-color);
   background: var(--base-background);
   line-height: 1.5;
   font-family: 'Spartan', -apple-system, 'Helvetica Neue', sans-serif;
