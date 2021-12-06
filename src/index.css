@@ -51,6 +51,7 @@ body {
   color: var(--text-color);
   background: var(--base-background);
   line-height: 1.5;
+  font-size: 1.2rem;
   font-family: 'Spartan', -apple-system, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -72,7 +73,20 @@ select {
   font: inherit;
 }
 
+select {
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 button {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: inherit;
   background: none;
   border: none;
   cursor: pointer;

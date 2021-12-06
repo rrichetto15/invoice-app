@@ -18,7 +18,6 @@ const App = () => {
     <AppLayout theme={theme}>
       <Sidebar />
       <Main>
-        <h1>Invoice App</h1>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/invoice/:id" element={<Invoice />} />
