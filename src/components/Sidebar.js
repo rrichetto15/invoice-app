@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { useTheme } from '../hooks/useTheme';
 
+import InvoiceModal from './InvoiceModal';
+
 import logo from '../assets/logo.png';
 import sun from '../assets/icon-sun.svg';
 import moon from '../assets/icon-moon.svg';
@@ -33,6 +35,7 @@ const Sidebar = () => {
           </button>
         </div>
       </Navigation>
+      <InvoiceModal />
     </SidebarWrap>
   );
 };
@@ -40,6 +43,7 @@ const Sidebar = () => {
 const SidebarWrap = styled.div`
   flex-shrink: 0;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

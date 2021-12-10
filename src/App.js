@@ -34,6 +34,7 @@ const AppLayout = styled.div`
 `;
 
 const Main = styled.main`
+  position: relative;
   max-width: 93rem;
   width: 100%;
   margin: 0 auto;
