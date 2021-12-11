@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useTheme } from '../hooks/useTheme';
+import { useGlobal } from '../hooks/useGlobal';
 
 import InvoiceModal from './InvoiceModal';
 
@@ -12,7 +12,7 @@ import moon from '../assets/icon-moon.svg';
 import avatar from '../assets/image-avatar.jpg';
 
 const Sidebar = () => {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme, showModal } = useGlobal();
 
   return (
     <SidebarWrap>
@@ -35,7 +35,7 @@ const Sidebar = () => {
           </button>
         </div>
       </Navigation>
-      <InvoiceModal />
+      {showModal && <InvoiceModal />}
     </SidebarWrap>
   );
 };
@@ -63,9 +63,6 @@ const Navigation = styled.nav`
 
   div:first-child {
     border-bottom: 1px solid #494e6e;
-  }
-
-  button {
   }
 
   .avatar {

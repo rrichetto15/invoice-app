@@ -4,15 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 
 import App from './App';
-import { ThemeProvider } from './context/ThemeContext';
+import { GlobalProvider } from './context/GlobalContext';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
+      <GlobalProvider>
         <App />
-      </ThemeProvider>
+      </GlobalProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

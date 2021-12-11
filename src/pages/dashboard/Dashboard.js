@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Placeholder from './Placeholder';
+import { useGlobal } from '../../hooks/useGlobal';
 
+import Placeholder from './Placeholder';
 import Button from '../../components/Button';
 
 import plus from '../../assets/icon-plus-circle.svg';
 
 const Dashboard = () => {
+  const { toggleModal } = useGlobal();
+
   return (
     <>
       <Header>
@@ -21,7 +24,7 @@ const Dashboard = () => {
             <option value="amount">Filter by date</option>
             <option value="amount">Filter by amount</option>
           </select>
-          <Button hasIcon>
+          <Button hasIcon onClick={toggleModal}>
             <img src={plus} alt="Create New Invoice" /> New Invoice
           </Button>
         </Utilities>

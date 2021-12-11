@@ -1,11 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useGlobal } from '../hooks/useGlobal';
+
 import Button from '../components/Button';
 
 const InvoiceModal = () => {
+  const { toggleModal } = useGlobal();
+
+  const handleClick = (e) => {
+    if (e.target.id === 'backdrop') {
+      toggleModal();
+    }
+  };
+
   return (
-    <Backdrop>
+    <Backdrop id="backdrop" onClick={handleClick}>
       <Modal>
         <Content>
           <h2>New Invoice</h2>
@@ -60,6 +70,7 @@ const Modal = styled.div`
   border-radius: 0 2rem 2rem 0;
   height: 100vh;
   padding: 6rem 6rem 3rem 6rem;
+  animation: fadeIn 1s ease;
 `;
 
 const Content = styled.div`

@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 
-export const ThemeContext = createContext();
+export const GlobalContext = createContext();
 
 const getUserPreferredTheme = () => {
   let theme = '';
@@ -24,8 +24,9 @@ const getUserPreferredTheme = () => {
   return theme;
 };
 
-export const ThemeProvider = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   const [theme, setTheme] = useState(getUserPreferredTheme());
+  const [showModal, setShowModal] = useState(false);
 
   const changeTheme = () => {
     theme === 'theme-light' ? setTheme('') : setTheme('theme-light');
@@ -35,9 +36,13 @@ export const ThemeProvider = ({ children }) => {
     document.body.className = theme;
   }, [theme]);
 
-  const value = { theme, changeTheme };
+  const toggleModal = () => {
+    showModal ? setShowModal(false) : setShowModal(true);
+  };
+
+  const value = { theme, changeTheme, showModal, toggleModal };
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
   );
 };

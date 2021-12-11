@@ -108,3 +108,13 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

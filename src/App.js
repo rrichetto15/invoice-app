@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useTheme } from './hooks/useTheme';
+import { useGlobal } from './hooks/useGlobal';
 
 import Dashboard from './pages/dashboard/Dashboard';
 import Invoice from './pages/invoice/Invoice';
@@ -12,7 +12,7 @@ import Signup from './pages/signup/Signup';
 import Sidebar from './components/Sidebar';
 
 const App = () => {
-  const { theme } = useTheme();
+  const { theme } = useGlobal();
 
   return (
     <AppLayout theme={theme}>
