@@ -21,9 +21,9 @@ const Dashboard = () => {
             <option value="amount">Filter by date</option>
             <option value="amount">Filter by amount</option>
           </select>
-          <StyledButton>
+          <Button hasIcon>
             <img src={plus} alt="Create New Invoice" /> New Invoice
-          </StyledButton>
+          </Button>
         </Utilities>
       </Header>
       <Placeholder />
@@ -51,12 +51,6 @@ const Utilities = styled.div`
   display: flex;
   align-items: center;
   gap: 3.2rem;
-`;
-
-const StyledButton = styled(Button)`
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
 `;
 
 export default Dashboard;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from '../components/Button';
+
 const InvoiceModal = () => {
   return (
     <Backdrop>
@@ -30,10 +32,10 @@ const InvoiceModal = () => {
           </Section>
         </Content>
         <Buttons>
-          <button>Discard</button>
+          <Button color="white">Discard</Button>
           <div>
-            <button>Save as Draft</button>
-            <button>Save & Send</button>
+            <Button color="gray">Save as Draft</Button>
+            <Button>Save & Send</Button>
           </div>
         </Buttons>
       </Modal>
@@ -120,11 +122,16 @@ const Buttons = styled.div`
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 3rem 6rem;
+  padding: 2rem 6rem;
   border-radius: 0 2rem 2rem 0;
   background: var(--base-background);
   background: transparent;
   box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
 export default InvoiceModal;
