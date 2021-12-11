@@ -12,7 +12,7 @@ import moon from '../assets/icon-moon.svg';
 import avatar from '../assets/image-avatar.jpg';
 
 const Sidebar = () => {
-  const { theme, changeTheme, showModal } = useGlobal();
+  const { theme, changeTheme } = useGlobal();
 
   return (
     <SidebarWrap>
@@ -35,7 +35,6 @@ const Sidebar = () => {
           </button>
         </div>
       </Navigation>
-      {showModal && <InvoiceModal />}
     </SidebarWrap>
   );
 };
@@ -44,6 +43,7 @@ const SidebarWrap = styled.div`
   flex-shrink: 0;
 
   position: relative;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

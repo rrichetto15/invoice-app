@@ -10,20 +10,24 @@ import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 
 import Sidebar from './components/Sidebar';
+import InvoiceModal from './components/InvoiceModal';
 
 const App = () => {
-  const { theme } = useGlobal();
+  const { theme, showModal } = useGlobal();
 
   return (
     <AppLayout theme={theme}>
       <Sidebar />
       <Main>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/invoice/:id" element={<Invoice />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
+        {showModal && <InvoiceModal />}
+        <Container>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/invoice/:id" element={<Invoice />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </Container>
       </Main>
     </AppLayout>
   );
@@ -36,8 +40,11 @@ const AppLayout = styled.div`
 
 const Main = styled.main`
   position: relative;
-  max-width: 93rem;
   width: 100%;
+`;
+
+const Container = styled.div`
+  max-width: 93rem;
   margin: 0 auto;
   padding: 6rem 10rem 3rem 10rem;
 `;
