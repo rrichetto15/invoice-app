@@ -48,7 +48,7 @@ const SidebarWrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 10rem;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--color-dark-3);
   border-radius: 0 2rem 2rem 0;
 `;

@@ -31,6 +31,7 @@ const App = () => {
 
 const AppLayout = styled.div`
   display: flex;
+  height: 100vh;
 `;
 
 const Main = styled.main`

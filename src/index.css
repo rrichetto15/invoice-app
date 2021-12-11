@@ -21,15 +21,17 @@
 
   --text-color: #ffffff;
   --text-input-label: #dfe3fa;
-
   --base-background: #141625;
   --input-background: #1e2139;
   --input-border: #252945;
 }
 
 .theme-light {
-  --base-background: #f8f8fb;
   --text-color: #0c0e16;
+  --text-input-label: #7e88c3;
+  --base-background: #f8f8fb;
+  --input-background: #ffffff;
+  --input-border: #dfe3fa;
 }
 
 *,
