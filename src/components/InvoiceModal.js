@@ -28,54 +28,6 @@ const InvoiceModal = () => {
               </ItemLabel>
             </ItemFlex>
           </Section>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
-            velit quasi recusandae architecto optio nulla, doloremque unde illum
-            nam minima impedit modi sapiente eveniet magni non, praesentium ea
-            vel! Sequi voluptates et dicta, nisi architecto laudantium illo
-            adipisci similique officiis explicabo quo aperiam repellat labore
-            numquam quam unde possimus nesciunt dignissimos? Incidunt itaque
-            quisquam delectus possimus laborum in provident, saepe nemo! Omnis
-            iste est exercitationem molestiae optio labore dignissimos tempore
-            quidem consequuntur cumque? Vitae nulla dolorem expedita et totam
-            corporis omnis, officiis doloremque quibusdam harum consequatur quae
-            nemo nostrum tempora voluptas ratione laudantium sit voluptates
-            cumque! Totam distinctio quaerat deserunt veritatis enim similique
-            ratione, accusantium iste quibusdam eius nobis vel possimus quam in
-            molestias. Officia earum dolores accusantium tempore hic quo
-            blanditiis maiores soluta unde nihil eum optio nostrum provident
-            odio qui, omnis temporibus odit officiis magnam veniam laborum
-            exercitationem. Dolores earum quas incidunt quidem suscipit eos qui
-            quo accusantium, in expedita necessitatibus aliquid maiores
-            molestiae amet, eveniet, voluptates optio quaerat voluptate labore!
-            At sunt ad exercitationem assumenda, amet saepe illum tenetur cum
-            sed, aperiam nam reprehenderit recusandae ratione atque dolor quasi
-            eius facilis? Quas architecto laborum cupiditate pariatur digni.
-            itationem assumenda, amet saepe illum tenetur cum sed, aperiam nam
-            reprehenderit recusandae ratione atque dolor quasi eius facilis?
-            Quas architecto laborum cupiditate pariatur digni. itationem
-            assumenda, amet saepe illum tenetur cum sed, aperiam nam
-            reprehenderit recusandae ratione atque dolor quasi eius facilis?
-            Quas architecto laborum cupiditate pariatur digni. Quas architecto
-            laborum cupiditate pariatur digni. itationem assumenda, amet saepe
-            illum tenetur cum sed, aperiam nam reprehenderit recusandae ratione
-            atque dolor quasi eius facilis? Quas architecto laborum cupiditate
-            pariatur digni. Quas architecto laborum cupiditate pariatur digni.
-            itationem assumenda, amet saepe illum tenetur cum sed, aperiam nam
-            reprehenderit recusandae ratione atque dolor quasi eius facilis?
-            Quas architecto laborum cupiditate pariatur digni. Quas architecto
-            laborum cupiditate pariatur digni. itationem assumenda, amet saepe
-            illum tenetur cum sed, aperiam nam reprehenderit recusandae ratione
-            atque dolor quasi eius facilis? Quas architecto laborum cupiditate
-            pariatur digni. Quas architecto laborum cupiditate pariatur digni.
-            itationem assumenda, amet saepe illum tenetur cum sed, aperiam nam
-            reprehenderit recusandae ratione atque dolor quasi eius facilis?
-            Quas architecto laborum cupiditate pariatur digni. Quas architecto
-            laborum cupiditate pariatur digni. itationem assumenda, amet saepe
-            illum tenetur cum sed, aperiam nam reprehenderit recusandae ratione
-            atque dolor quasi eius facilis? Quas architecto laborum cupiditate
-            pariatur digni.
-          </p>
         </Content>
         <Buttons>
           <button>Discard</button>
@@ -101,7 +53,6 @@ const Backdrop = styled.div`
 
 const Modal = styled.div`
   position: relative;
-  /* overflow: scroll; */
   background: var(--base-background);
   width: 62rem;
   border-radius: 0 2rem 2rem 0;
@@ -110,7 +61,6 @@ const Modal = styled.div`
 `;
 
 const Content = styled.div`
-  border: 1px solid gray;
   overflow: scroll;
   height: calc(100% - 8rem);
 
