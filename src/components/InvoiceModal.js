@@ -71,7 +71,7 @@ const Modal = styled.div`
   border-radius: 0 2rem 2rem 0;
   height: 100vh;
   padding: 6rem 6rem 3rem 6rem;
-  animation: fadeIn 1s ease;
+  animation: fadeIn 0.5s ease-in-out;
 `;
 
 const Content = styled.div`

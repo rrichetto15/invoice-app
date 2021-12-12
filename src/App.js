@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useGlobal } from './hooks/useGlobal';
@@ -16,20 +16,22 @@ const App = () => {
   const { theme, showModal } = useGlobal();
 
   return (
-    <AppLayout theme={theme}>
-      <Sidebar />
-      <Main>
-        {showModal && <InvoiceModal />}
-        <Container>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/invoice/:id" element={<Invoice />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-        </Container>
-      </Main>
-    </AppLayout>
+    <Router>
+      <AppLayout theme={theme}>
+        <Sidebar />
+        <Main>
+          {showModal && <InvoiceModal />}
+          <Container>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/invoice/:id" element={<Invoice />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </Container>
+        </Main>
+      </AppLayout>
+    </Router>
   );
 };
 
