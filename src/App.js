@@ -2,18 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useGlobal } from './hooks/useGlobal';
+import { useGlobalContext } from './hooks/useGlobalContext';
 
 import Dashboard from './pages/dashboard/Dashboard';
 import Invoice from './pages/invoice/Invoice';
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
 
 import Sidebar from './components/Sidebar';
 import InvoiceModal from './components/InvoiceModal';
 
 const App = () => {
-  const { theme, showModal } = useGlobal();
+  const { theme, showModal } = useGlobalContext();
 
   return (
     <Router>
@@ -25,8 +23,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/invoice/:id" element={<Invoice />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
             </Routes>
           </Container>
         </Main>

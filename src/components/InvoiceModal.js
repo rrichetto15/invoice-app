@@ -1,53 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { useGlobal } from '../hooks/useGlobal';
+import { useGlobalContext } from '../hooks/useGlobalContext';
+import { useInvoiceContext } from '../hooks/useInvoiceContext';
 
 import Button from '../components/Button';
 
 const InvoiceModal = () => {
-  const { toggleModal } = useGlobal();
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [zip, setZip] = useState('');
+  const [country, setCountry] = useState('');
 
-  const handleClick = (e) => {
-    if (e.target.id === 'backdrop') {
+  const { toggleModal } = useGlobalContext();
+  const { dispatch } = useInvoiceContext();
+
+  const closeModal = (e) => {
+    if (e.target.id === 'backdrop' || e.target.id === 'discard-btn') {
       toggleModal();
     }
   };
 
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const invoice = {
+      address,
+      city,
+      zip,
+      country,
+    };
+
+    dispatch({ type: 'CREATE', payload: invoice });
+  };
+
   return (
-    <Backdrop id="backdrop" onClick={handleClick}>
+    <Backdrop id="backdrop" onClick={closeModal}>
       <Modal>
-        <Content>
+        <Form onSubmit={(e) => e.preventDefault()}>
           <h2>New Invoice</h2>
           <Section>
             <h3>Bill From</h3>
             <ItemLabel>
               <span>Street Address</span>
-              <input type="text" />
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
             </ItemLabel>
             <ItemFlex>
               <ItemLabel>
                 <span>City</span>
-                <input type="text" />
+                <input
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
               </ItemLabel>
               <ItemLabel>
                 <span>Zip Code</span>
-                <input type="text" />
+                <input
+                  type="text"
+                  value={zip}
+                  onChange={(e) => setZip(e.target.value)}
+                />
               </ItemLabel>
               <ItemLabel>
                 <span>Country</span>
-                <input type="text" />
+                <input
+                  type="text"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                />
               </ItemLabel>
             </ItemFlex>
           </Section>
-        </Content>
-        <Buttons>
-          <Button color="white">Discard</Button>
-          <div>
-            <Button color="gray">Save as Draft</Button>
-            <Button>Save & Send</Button>
-          </div>
-        </Buttons>
+          <Buttons>
+            <Button id="discard-btn" color="white" onClick={closeModal}>
+              Discard
+            </Button>
+            <div>
+              <Button color="gray" onClick={submitForm}>
+                Save as Draft
+              </Button>
+              <Button onClick={submitForm}>Save & Send</Button>
+            </div>
+          </Buttons>
+        </Form>
       </Modal>
     </Backdrop>
   );
@@ -74,7 +114,7 @@ const Modal = styled.div`
   animation: fadeIn 0.5s ease-in-out;
 `;
 
-const Content = styled.div`
+const Form = styled.form`
   overflow: scroll;
   height: calc(100% - 8rem);
 

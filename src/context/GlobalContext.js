@@ -24,7 +24,7 @@ const getUserPreferredTheme = () => {
   return theme;
 };
 
-export const GlobalProvider = ({ children }) => {
+export const GlobalContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(getUserPreferredTheme());
   const [showModal, setShowModal] = useState(false);
 

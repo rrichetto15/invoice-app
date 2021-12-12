@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useGlobal } from '../../hooks/useGlobal';
+import { useGlobalContext } from '../../hooks/useGlobalContext';
+import { useInvoiceContext } from '../../hooks/useInvoiceContext';
 
-import Placeholder from './Placeholder';
 import Button from '../../components/Button';
+import InvoiceList from './InvoiceList';
+import Placeholder from './Placeholder';
 
 import plus from '../../assets/icon-plus-circle.svg';
 
 const Dashboard = () => {
-  const { toggleModal } = useGlobal();
+  const { toggleModal } = useGlobalContext();
+  const { invoices } = useInvoiceContext();
 
   return (
     <>
@@ -29,7 +32,11 @@ const Dashboard = () => {
           </Button>
         </Utilities>
       </Header>
-      <Placeholder />
+      {invoices.length > 0 ? (
+        <InvoiceList invoices={invoices} />
+      ) : (
+        <Placeholder />
+      )}
     </>
   );
 };

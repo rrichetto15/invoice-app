@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
 import App from './App';
-import { GlobalProvider } from './context/GlobalContext';
+import { GlobalContextProvider } from './context/GlobalContext';
+import { InvoiceContextProvider } from './context/InvoiceContext';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router> */}
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
-    {/* </Router> */}
+    <GlobalContextProvider>
+      <InvoiceContextProvider>
+        <App />
+      </InvoiceContextProvider>
+    </GlobalContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

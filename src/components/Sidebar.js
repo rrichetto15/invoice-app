@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useGlobal } from '../hooks/useGlobal';
+import { useGlobalContext } from '../hooks/useGlobalContext';
 
 import InvoiceModal from './InvoiceModal';
 
@@ -12,7 +12,7 @@ import moon from '../assets/icon-moon.svg';
 import avatar from '../assets/image-avatar.jpg';
 
 const Sidebar = () => {
-  const { theme, changeTheme } = useGlobal();
+  const { theme, changeTheme } = useGlobalContext();
 
   return (
     <SidebarWrap>
