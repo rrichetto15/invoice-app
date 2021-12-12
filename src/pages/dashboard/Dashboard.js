@@ -19,7 +19,11 @@ const Dashboard = () => {
       <Header>
         <div>
           <h1>Invoices</h1>
-          <p>No invoices</p>
+          {invoices.length === 1 ? (
+            <p>There is 1 invoice</p>
+          ) : (
+            <p>There are {invoices.length} total invoices</p>
+          )}
         </div>
         <Utilities>
           <select name="filter" id="filter">

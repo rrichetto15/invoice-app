@@ -7,10 +7,19 @@ import { useInvoiceContext } from '../hooks/useInvoiceContext';
 import Button from '../components/Button';
 
 const InvoiceModal = () => {
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [zip, setZip] = useState('');
-  const [country, setCountry] = useState('');
+  const [fromAddress, setFromAddress] = useState('');
+  const [fromCity, setFromCity] = useState('');
+  const [fromZip, setFromZip] = useState('');
+  const [fromCountry, setFromCountry] = useState('');
+  const [toName, setToName] = useState('');
+  const [toEmail, setToEmail] = useState('');
+  const [toAddress, setToAddress] = useState('');
+  const [toCity, setToCity] = useState('');
+  const [toZip, setToZip] = useState('');
+  const [toCountry, setToCountry] = useState('');
+  const [issueDate, setIssueDate] = useState('');
+  const [paymentTerms, setPaymentTerms] = useState('');
+  const [projectDescription, setProjectDescription] = useState('');
 
   const { toggleModal } = useGlobalContext();
   const { dispatch } = useInvoiceContext();
@@ -25,10 +34,18 @@ const InvoiceModal = () => {
     e.preventDefault();
 
     const invoice = {
-      address,
-      city,
-      zip,
-      country,
+      fromAddress,
+      fromCity,
+      fromZip,
+      fromCountry,
+      toName,
+      toEmail,
+      toAddress,
+      toCity,
+      toZip,
+      toCountry,
+      issueDate,
+      paymentTerms,
     };
 
     dispatch({ type: 'CREATE', payload: invoice });
@@ -45,8 +62,8 @@ const InvoiceModal = () => {
               <span>Street Address</span>
               <input
                 type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                value={fromAddress}
+                onChange={(e) => setFromAddress(e.target.value)}
               />
             </ItemLabel>
             <ItemFlex>
@@ -54,27 +71,145 @@ const InvoiceModal = () => {
                 <span>City</span>
                 <input
                   type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  value={fromCity}
+                  onChange={(e) => setFromCity(e.target.value)}
                 />
               </ItemLabel>
               <ItemLabel>
                 <span>Zip Code</span>
                 <input
                   type="text"
-                  value={zip}
-                  onChange={(e) => setZip(e.target.value)}
+                  value={fromZip}
+                  onChange={(e) => setFromZip(e.target.value)}
                 />
               </ItemLabel>
               <ItemLabel>
                 <span>Country</span>
                 <input
                   type="text"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
+                  value={fromCountry}
+                  onChange={(e) => setFromCountry(e.target.value)}
                 />
               </ItemLabel>
             </ItemFlex>
+          </Section>
+          <Section>
+            <h3>Bill To</h3>
+            <ItemLabel>
+              <span>Client's Name</span>
+              <input
+                type="text"
+                value={toName}
+                onChange={(e) => setToName(e.target.value)}
+              />
+            </ItemLabel>
+            <ItemLabel>
+              <span>Client's Email</span>
+              <input
+                type="text"
+                value={toEmail}
+                onChange={(e) => setToEmail(e.target.value)}
+              />
+            </ItemLabel>
+            <ItemLabel>
+              <span>Street Address</span>
+              <input
+                type="text"
+                value={toAddress}
+                onChange={(e) => setToAddress(e.target.value)}
+              />
+            </ItemLabel>
+            <ItemFlex>
+              <ItemLabel>
+                <span>City</span>
+                <input
+                  type="text"
+                  value={toCity}
+                  onChange={(e) => setToCity(e.target.value)}
+                />
+              </ItemLabel>
+              <ItemLabel>
+                <span>Zip Code</span>
+                <input
+                  type="text"
+                  value={toZip}
+                  onChange={(e) => setToZip(e.target.value)}
+                />
+              </ItemLabel>
+              <ItemLabel>
+                <span>Country</span>
+                <input
+                  type="text"
+                  value={toCountry}
+                  onChange={(e) => setToCountry(e.target.value)}
+                />
+              </ItemLabel>
+            </ItemFlex>
+          </Section>
+          <Section>
+            <ItemFlex>
+              <ItemLabel>
+                <span>Issue Date</span>
+                <input
+                  type="text"
+                  value={issueDate}
+                  onChange={(e) => setIssueDate(e.target.value)}
+                />
+              </ItemLabel>
+              <ItemLabel>
+                <span>Payment Terms</span>
+                <input
+                  type="text"
+                  value={paymentTerms}
+                  onChange={(e) => setPaymentTerms(e.target.value)}
+                />
+              </ItemLabel>
+            </ItemFlex>
+            <ItemLabel>
+              <span>Project Description</span>
+              <input
+                type="text"
+                value={projectDescription}
+                onChange={(e) => setProjectDescription(e.target.value)}
+              />
+            </ItemLabel>
+          </Section>
+          <Section>
+            <h3 className="item-list-heading">Item List</h3>
+            <ItemListGrid>
+              <span>Item Name</span>
+              <span>Qty.</span>
+              <span>Price</span>
+              <span>Total</span>
+              <span></span>
+            </ItemListGrid>
+            <ItemListGrid>
+              <ItemLabel>
+                <input type="text" />
+              </ItemLabel>
+              <ItemLabel>
+                <input type="number" />
+              </ItemLabel>
+              <ItemLabel>
+                <input type="number" />
+              </ItemLabel>
+              <span>156.00</span>
+              <button>x</button>
+            </ItemListGrid>
+            <ItemListGrid>
+              <ItemLabel>
+                <input type="text" />
+              </ItemLabel>
+              <ItemLabel>
+                <input type="number" />
+              </ItemLabel>
+              <ItemLabel>
+                <input type="number" />
+              </ItemLabel>
+              <span>156.00</span>
+              <button>x</button>
+            </ItemListGrid>
+            <Button color="gray">+ Add New Item</Button>
           </Section>
           <Buttons>
             <Button id="discard-btn" color="white" onClick={closeModal}>
@@ -110,12 +245,13 @@ const Modal = styled.div`
   width: 62rem;
   border-radius: 0 2rem 2rem 0;
   height: 100vh;
-  padding: 6rem 6rem 3rem 6rem;
+  padding: 6rem 4.4rem 3rem 6rem;
   animation: fadeIn 0.5s ease-in-out;
 `;
 
 const Form = styled.form`
   overflow: scroll;
+  padding-right: 1.6rem;
   height: calc(100% - 8rem);
 
   h2 {
@@ -135,10 +271,17 @@ const Section = styled.div`
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-primary);
+
+    &.item-list-heading {
+      font-size: 1.8rem;
+      color: var(--color-primary-light-2);
+    }
   }
 `;
 
 const ItemLabel = styled.label`
+  width: 100%;
+
   span {
     display: block;
     color: var(--text-input-label);
@@ -165,6 +308,12 @@ const ItemLabel = styled.label`
 const ItemFlex = styled.div`
   display: flex;
   gap: 2.4rem;
+`;
+
+const ItemListGrid = styled.div`
+  display: grid;
+  grid-template-columns: 20rem 5rem 7.5rem 7.5rem 2rem;
+  justify-content: space-between;
 `;
 
 const Buttons = styled.div`

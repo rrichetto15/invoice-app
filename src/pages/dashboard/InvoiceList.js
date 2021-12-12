@@ -21,6 +21,10 @@ const InvoiceList = ({ invoices }) => {
 };
 
 const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
   li {
     display: flex;
     justify-content: space-between;
