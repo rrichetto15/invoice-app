@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { GrClose } from 'react-icons/gr';
 
 import { useGlobalContext } from '../hooks/useGlobalContext';
 import { useInvoiceContext } from '../hooks/useInvoiceContext';
@@ -25,7 +26,7 @@ const InvoiceModal = () => {
   const { dispatch } = useInvoiceContext();
 
   const closeModal = (e) => {
-    if (e.target.id === 'backdrop' || e.target.id === 'discard-btn') {
+    if (e.target.closest('#close-btn') || e.target.id === 'discard-btn') {
       toggleModal();
     }
   };
@@ -52,10 +53,15 @@ const InvoiceModal = () => {
   };
 
   return (
-    <Backdrop id="backdrop" onClick={closeModal}>
+    <Backdrop>
       <Modal>
         <Form onSubmit={(e) => e.preventDefault()}>
-          <h2>New Invoice</h2>
+          <div className="form-heading">
+            <h2>New Invoice</h2>
+            <button id="close-btn" onClick={closeModal}>
+              <GrClose />
+            </button>
+          </div>
           <Section>
             <h3>Bill From</h3>
             <ItemLabel>
@@ -254,10 +260,26 @@ const Form = styled.form`
   padding-right: 1.6rem;
   height: calc(100% - 8rem);
 
-  h2 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 3.2rem;
+  .form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+
+    svg {
+      height: 1.8rem;
+      width: 1.8rem;
+
+      path {
+        stroke: var(--color-white);
+        stroke-width: 4;
+      }
+    }
   }
 `;
 
@@ -307,6 +329,7 @@ const ItemLabel = styled.label`
 
 const ItemFlex = styled.div`
   display: flex;
+  justify-content: space-between;
   gap: 2.4rem;
 `;
 
