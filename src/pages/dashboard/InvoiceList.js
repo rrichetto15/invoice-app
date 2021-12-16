@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import InvoiceItem from './InvoiceItem';
+
 const InvoiceList = ({ invoices }) => {
   return (
     <List>
-      {invoices.map((invoice, i) => {
-        const { address, city, zip, country } = invoice;
-
-        return (
-          <li key={i}>
-            <span>{address}</span>
-            <span>{city}</span>
-            <span>{zip}</span>
-            <span>{country}</span>
-          </li>
-        );
-      })}
+      {invoices.map((invoice) => (
+        <InvoiceItem key={invoice.id} invoice={invoice} />
+      ))}
     </List>
   );
 };

@@ -26,7 +26,7 @@ const getUserPreferredTheme = () => {
 
 export const GlobalContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(getUserPreferredTheme());
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const changeTheme = () => {
     theme === 'theme-light' ? setTheme('') : setTheme('theme-light');

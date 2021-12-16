@@ -35,6 +35,12 @@ const InvoiceModal = () => {
     e.preventDefault();
 
     const invoice = {
+      id: Math.floor(Math.random() * 9999999),
+      invoiceNumber: Number(
+        Math.floor(Math.random() * 99999)
+          .toString()
+          .padStart(6, '0')
+      ),
       fromAddress,
       fromCity,
       fromZip,
@@ -47,7 +53,12 @@ const InvoiceModal = () => {
       toCountry,
       issueDate,
       paymentTerms,
+      projectDescription,
+      status: 'Pending',
+      amount: 499.99,
     };
+
+    console.log(invoice);
 
     dispatch({ type: 'CREATE', payload: invoice });
   };

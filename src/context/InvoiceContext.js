@@ -4,16 +4,11 @@ export const InvoiceContext = createContext();
 
 const initialState = [
   {
-    address: '123 North St',
-    city: 'Dallas',
-    zip: 78392,
-    country: 'USA',
-  },
-  {
-    address: '382 South Ave',
-    city: 'San Antonio',
-    zip: 92829,
-    country: 'USA',
+    invoiceNumber: 394839,
+    issueDate: 'Due 19 Apr 2022',
+    toName: 'John Doe',
+    amount: 512.02,
+    status: 'Pending',
   },
 ];
 
