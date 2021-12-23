@@ -58,8 +58,6 @@ const InvoiceModal = () => {
       amount: 499.99,
     };
 
-    console.log(invoice);
-
     dispatch({ type: 'CREATE', payload: invoice });
   };
 
