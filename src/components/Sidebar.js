@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useGlobalContext } from '../hooks/useGlobalContext';
-
-import InvoiceModal from './InvoiceModal';
 
 import logo from '../assets/logo.png';
 import sun from '../assets/icon-sun.svg';

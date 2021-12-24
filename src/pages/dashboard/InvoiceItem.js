@@ -8,12 +8,12 @@ const InvoiceItem = ({ invoice }) => {
   const { invoiceNumber, toName, issueDate, amount, status } = invoice;
 
   return (
-    <InvoiceItemLink to="/">
+    <InvoiceItemLink to={`/invoice/${invoiceNumber}`}>
       <span className="number">
         <span>#</span>
         {invoiceNumber}
       </span>
-      <span className="date">{issueDate}</span>
+      <span className="date">Due {issueDate}</span>
       <span className="name">{toName}</span>
       <span className="amount">${amount}</span>
       <span className="status">

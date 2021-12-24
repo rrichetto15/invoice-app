@@ -4,11 +4,28 @@ export const InvoiceContext = createContext();
 
 const initialState = [
   {
-    invoiceNumber: 394839,
-    issueDate: 'Due 19 Apr 2022',
-    toName: 'John Doe',
-    amount: 512.02,
+    id: Math.floor(Math.random() * 9999999),
+    invoiceNumber: 384928,
+    // invoiceNumber: Number(
+    //   Math.floor(Math.random() * 99999)
+    //     .toString()
+    //     .padStart(6, '0')
+    // ),
+    fromAddress: '123 Main St',
+    fromCity: 'Moscow',
+    fromZip: '83843',
+    fromCountry: 'USA',
+    toName: 'Ryan Richetto',
+    toEmail: 'ryan1241@gmail.com',
+    toAddress: '1234 My Street',
+    toCity: 'Maple Grove',
+    toZip: '55311',
+    toCountry: 'USA',
+    issueDate: 'Oct 10, 2021',
+    paymentTerms: '30 days',
+    projectDescription: 'A great project',
     status: 'Pending',
+    amount: 499.99,
   },
 ];
 
