@@ -271,6 +271,7 @@ const ItemListGrid = styled.div`
   p {
     font-weight: 700;
   }
+
   .qty,
   .price {
     color: var(--color-light-2);
