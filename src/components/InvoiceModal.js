@@ -64,13 +64,12 @@ const InvoiceModal = () => {
   return (
     <Backdrop>
       <Modal>
+        <button id="close-btn" onClick={closeModal}>
+          <GrClose />
+        </button>
         <Form onSubmit={(e) => e.preventDefault()}>
-          <div className="form-heading">
-            <h2>New Invoice</h2>
-            <button id="close-btn" onClick={closeModal}>
-              <GrClose />
-            </button>
-          </div>
+          <h2>New Invoice</h2>
+
           <Section>
             <h3>Bill From</h3>
             <ItemLabel>
@@ -262,23 +261,11 @@ const Modal = styled.div`
   height: 100vh;
   padding: 6rem 4.4rem 3rem 6rem;
   animation: fadeIn 0.5s ease-in-out;
-`;
 
-const Form = styled.form`
-  overflow: scroll;
-  padding-right: 1.6rem;
-  height: calc(100% - 8rem);
-
-  .form-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-
-    h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-    }
+  #close-btn {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
 
     svg {
       height: 1.8rem;
@@ -289,6 +276,18 @@ const Form = styled.form`
         stroke-width: 4;
       }
     }
+  }
+`;
+
+const Form = styled.form`
+  overflow: scroll;
+  padding-right: 1.6rem;
+  height: calc(100% - 8rem);
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
   }
 `;
 
